@@ -1,5 +1,5 @@
 ## What is this?
-WireHole is a combination of WireGuard, PiHole, and Unbound in a docker-compose project with the intent of enabling users to quickly and easily create and deploy a personally managed full or split-tunnel WireGuard VPN with ad blocking capabilities (via Pihole), and DNS caching with additional privacy options (via Unbound). 
+WireHole is a combination of WireGuard, PiHole, and Unbound in a docker-compose project with the intent of enabling users to quickly and easily create and deploy a personally managed full or split-tunnel WireGuard VPN with ad blocking capabilities (via Pihole), and DNS caching with additional privacy options (via Unbound).
 
 ## Author
 
@@ -10,14 +10,14 @@ WireHole is a combination of WireGuard, PiHole, and Unbound in a docker-compose 
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/IAmStoxe/wirehole/issue). 
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/IAmStoxe/wirehole/issue).
 
 ## Show your support
 
 Give a ⭐ if this project helped you!
 
 <a href="https://www.buymeacoffee.com/stoxe" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
- 
+
 ---
 
 
@@ -28,7 +28,7 @@ Give a ⭐ if this project helped you!
 
 ##### Optional Fully Automated Deployment on Oracle Cloud:
   - https://medium.com/@devinjaystokes/automating-the-deployment-of-your-forever-free-pihole-and-wireguard-server-dce581f71b7
- 
+
 
 
 ### Quickstart
@@ -80,7 +80,7 @@ Within the output of the terminal will be QR codes you can (if you choose) to se
 
 ```bash
 wireguard    | **** Internal subnet is set to 10.6.0.0 ****
-wireguard    | **** Peer DNS servers will be set to 10.2.0.100 ****
+wireguard    | **** Peer DNS servers will be set to 10.10.11.100 ****
 wireguard    | **** No found wg0.conf found (maybe an initial install), generating 1 server and 1 peer/client confs ****
 wireguard    | PEER 1 QR code:
 wireguard    | █████████████████████████████████████████████████████████████████
@@ -128,13 +128,13 @@ wireguard    | [services.d] starting services
 
 ## Recommended configuration / Split tunnel:
 
-Modify your wireguard client `AllowedIps` to `10.2.0.0/24` to only tunnel the web panel and DNS traffic.
+Modify your wireguard client `AllowedIps` to `10.10.11.0/24` to only tunnel the web panel and DNS traffic.
 
 ---
 
 ## Access PiHole
 
-While connected to WireGuard, navigate to http://10.2.0.100/admin
+While connected to WireGuard, navigate to http://10.10.11.100/admin
 
 *The password (unless you set it in `docker-compose.yml`) is blank.*
 
@@ -143,8 +143,8 @@ While connected to WireGuard, navigate to http://10.2.0.100/admin
 ---
 
 ## Configuring for Dynamic DNS (DDNS)
-If you're using a dynamic DNS provider, you can edit `docker-compose.yml` under "wireguard". 
-Here is an excerpt from the file. 
+If you're using a dynamic DNS provider, you can edit `docker-compose.yml` under "wireguard".
+Here is an excerpt from the file.
 
 You need to uncomment `#- SERVERURL` so it reads `- SERVERURL` without the `#` and then change `my.ddns.net` to your DDNS URL.
 
@@ -165,7 +165,7 @@ If you choose to not use Cloudflare any reason you are able to modify the upstre
 
 Search for `forward-zone` and modify the IP addresses for your chosen DNS provider.
 
->**NOTE:** The anything after `#` is a comment on the line. 
+>**NOTE:** The anything after `#` is a comment on the line.
 What this means is it is just there to tell you which DNS provider you put there. It is for you to be able to reference later. I recommend updating this if you change your DNS provider from the default values.
 
 
